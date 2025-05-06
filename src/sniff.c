@@ -20,7 +20,7 @@
 // Returns -1 if packet wasn't found. -2 or -3 for other errors
 //
 //***************************************************************************
-int sniff(int raw_socket, uint8_t *packet_buffer, bool (*filter)(uint8_t *), int listen_limit)
+int sniff(int raw_socket, uint8_t *packet_buffer, bool (*filter)(uint8_t *, ap_info), ap_info ap_info, int listen_limit)
 {
     uint8_t *buffer = malloc(BUFFER_SIZE);
     if (buffer == NULL)
@@ -42,7 +42,7 @@ int sniff(int raw_socket, uint8_t *packet_buffer, bool (*filter)(uint8_t *), int
 
         uint8_t *raw_packet = buffer + buffer[2]; //packet without radiotap
 
-        if (filter(raw_packet))
+        if (filter(raw_packet, ap_info))
         {
             if (packet_buffer != NULL)
                 memcpy(packet_buffer, buffer, BUFFER_SIZE);

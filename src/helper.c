@@ -26,3 +26,4 @@ void print_packet_contents(uint8_t *raw_packet, int packet_len)
         printf("%02x ", raw_packet[i]);
     printf("\n");
 }
+
