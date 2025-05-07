@@ -23,7 +23,7 @@ Specifiskie ierobežojumi katram uzbrukumam:
 #### Klonē repozitoriju
 ```
 git clone https://github.com/rihrds/NetRogue.git
-cd NetRogue
+cd NetRogue/src
 ```
 #### Programmas izveide/kompilēšana
 ```
